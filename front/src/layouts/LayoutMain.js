@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
-
 import Home from '../pages/Home';
 import PageFinder from '../pages/PageFinder';
 import TextFinder from '../pages/TextFinder';

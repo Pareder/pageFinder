@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
-
 import LayoutAppBar from './layouts/LayoutAppBar';
 import LayoutDrawer from './layouts/LayoutDrawer';
 import LayoutMain from './layouts/LayoutMain';
@@ -19,13 +18,13 @@ class App extends Component {
     this.setState({
       open: true,
     });
-  }
+  };
 
   handleDrawerClose = () => {
     this.setState({
       open: false,
     });
-  }
+  };
 
   render() {
     const { classes } = this.props;

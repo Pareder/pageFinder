@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles'
-
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -16,26 +15,24 @@ class MenuItems extends React.Component {
 
     return (
       <List>
-        {
-          config.menuItems.map(item => {
-            const IconName = item.icon
+        {config.menuItems.map(item => {
+          const IconName = item.icon;
 
-            return (
-              <ListItem
-                button
-                className={classes.listItem}
-                component={Link}
-                to={item.link}
-                key={item.text}
-              >
-                <ListItemIcon>
-                  <IconName />
-                </ListItemIcon>
-                <ListItemText primary={item.text} />
-              </ListItem>
-            )
-          })
-        }
+          return (
+            <ListItem
+              button
+              className={classes.listItem}
+              component={Link}
+              to={item.link}
+              key={item.text}
+            >
+              <ListItemIcon>
+                <IconName/>
+              </ListItemIcon>
+              <ListItemText primary={item.text}/>
+            </ListItem>
+          )
+        })}
       </List>
     );
   }

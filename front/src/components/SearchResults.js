@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +8,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import RemoveIcon from '@material-ui/icons/Remove';
-
 import styles from './styles';
 
 class SearchResults extends React.Component {
@@ -24,7 +22,7 @@ class SearchResults extends React.Component {
             Search Results
           </Typography>
           <List>
-            {pages.map(page =>
+            {pages.map(page => (
               <ListItem key={page.query}>
                 <ListItemIcon>
                   <RemoveIcon />
@@ -45,7 +43,7 @@ class SearchResults extends React.Component {
                   }
                 />
               </ListItem>
-            )}
+            ))}
           </List>
         </CardContent>
       </Card>

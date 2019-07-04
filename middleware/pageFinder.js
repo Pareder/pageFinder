@@ -1,5 +1,4 @@
 const Puppeteer = require('puppeteer')
-
 const CONFIG = require('../config')
 
 const startFinding = async (queries, searchWord) => {
@@ -9,15 +8,13 @@ const startFinding = async (queries, searchWord) => {
   const page = await browser.newPage()
 
   for await (query of queries) {
-    const pageNumber = 1
-
     await page.goto(CONFIG.GOOGLE_DOMAIN)
     await page.type(CONFIG.TEXT_INPUT, query)
     await page.$eval(CONFIG.BUTTON_INPUT, x => x.click())
     const pageResult = await pageSearch(searchWord, page)
 
     result.push({
-      query: query,
+      query,
       ...pageResult
     })
   }

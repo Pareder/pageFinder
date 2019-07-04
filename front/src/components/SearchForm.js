@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,7 +8,6 @@ import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
 import SearchQueries from './SearchQueries';
 import styles from './styles';
 
@@ -19,10 +17,10 @@ class SearchForm extends React.Component {
     this.state = {
       searchQueries: [],
       searchQuery: '',
-      searchWord: 'devlikepro.com',
+      searchWord: '',
       errorQuery: false,
       errorWord: false,
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
@@ -34,7 +32,7 @@ class SearchForm extends React.Component {
     this.setState({
       [name]: event.target.value,
     });
-  }
+  };
 
   handleAdd() {
     this.setState(state => ({
@@ -51,7 +49,7 @@ class SearchForm extends React.Component {
     this.setState({
       searchQueries: arr
     });
-  }
+  };
 
   handleSubmit(event) {
     event.preventDefault();
@@ -88,7 +86,7 @@ class SearchForm extends React.Component {
 
   render() {
     const { classes, loading } = this.props;
-    const { searchQueries, errorQuery, errorWord } = this.state
+    const { searchQueries, errorQuery, errorWord } = this.state;
 
     return (
       <Card className={classes.margin}>

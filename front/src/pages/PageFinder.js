@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import config from '../config'
-
 import Typography from '@material-ui/core/Typography';
-
 import SearchForm from '../components/SearchForm';
 import SearchResults from '../components/SearchResults';
 
@@ -43,7 +41,7 @@ class Main extends React.Component {
   }
 
   render() {
-    const { pages, loading } = this.state
+    const { pages, loading } = this.state;
 
     return (
       <div>

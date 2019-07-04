@@ -23,3 +23,9 @@ cd front && npm install
 ```
 cd front && npm run build
 ```
+
+### Start
+
+```
+npm start
+```
