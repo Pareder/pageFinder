@@ -62,23 +62,25 @@ class TextFinder extends React.Component {
     const splittedByDots = text.split('.');
 
     for (let i = 0; i < splittedByDots.length; i++) {
-      splittedByDots[i] = splittedByDots[i].replace(/^\s+|\s+$/g, '');
-    }
+      const sentenceFirstWord = splittedByDots[i].replace(/^\s+|\s+$| .*/g, '');
 
-    for (let i = 0; i < splittedByDots.length; i++) {
-      const sentenceFirstWord = splittedByDots[i].substr(0, splittedByDots[i].indexOf(' '));
-      if (sentenceFirstWord.toLowerCase() !== firstWord.toLowerCase()) {
-        firstWord = sentenceFirstWord.toLowerCase();
-        repeatCounter = 0;
-        sentences.length = 0;
-        sentences.push(splittedByDots[i]);
-      } else {
-        repeatCounter++;
-        sentences.push(splittedByDots[i]);
+      if (sentenceFirstWord.toLowerCase() !== firstWord) {
         if (repeatCounter >= 2) {
           result.push(sentences.join('. '));
         }
+
+        firstWord = sentenceFirstWord.toLowerCase();
+        repeatCounter = 0;
+        sentences.length = 0;
+      } else {
+        repeatCounter++;
       }
+
+      sentences.push(splittedByDots[i]);
+    }
+
+    if (repeatCounter >= 2) {
+      result.push(sentences.join('. '));
     }
 
     return result;
