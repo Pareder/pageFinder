@@ -12,6 +12,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText'
 import RemoveIcon from '@material-ui/icons/Remove';
 import styles from '../components/styles';
+import { findRepeatingSentences } from '../utils';
 
 class TextFinder extends React.Component {
   constructor(props) {
@@ -50,40 +51,8 @@ class TextFinder extends React.Component {
 
     this.setState({
       submitted: true,
-      repeatedSentences: this.findRepeatingSentences(this.state.text),
+      repeatedSentences: findRepeatingSentences(this.state.text),
     });
-  }
-
-  findRepeatingSentences(text) {
-    let firstWord = '';
-    let repeatCounter = 0;
-    const sentences = [];
-    const result = [];
-    const splittedByDots = text.split('.');
-
-    for (let i = 0; i < splittedByDots.length; i++) {
-      const sentenceFirstWord = splittedByDots[i].replace(/^\s+|\s+$| .*/g, '');
-
-      if (sentenceFirstWord.toLowerCase() !== firstWord) {
-        if (repeatCounter >= 2) {
-          result.push(sentences.join('. '));
-        }
-
-        firstWord = sentenceFirstWord.toLowerCase();
-        repeatCounter = 0;
-        sentences.length = 0;
-      } else {
-        repeatCounter++;
-      }
-
-      sentences.push(splittedByDots[i]);
-    }
-
-    if (repeatCounter >= 2) {
-      result.push(sentences.join('. '));
-    }
-
-    return result;
   }
 
   render() {
