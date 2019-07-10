@@ -1,9 +1,8 @@
 import React from 'react';
-import axios from 'axios';
-import config from '../config'
 import Typography from '@material-ui/core/Typography';
 import SearchForm from '../components/SearchForm';
 import SearchResults from '../components/SearchResults';
+import API from '../api';
 
 class Main extends React.Component {
   constructor(props) {
@@ -13,31 +12,27 @@ class Main extends React.Component {
       loading: false,
     };
 
+    this._api = API.createFrom();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(searchQueries, searchWord) {
+  async handleSubmit(searchQueries, searchWord) {
     this.setState({
       loading: true,
     });
 
-    axios.post(`${config.apiServer}/getPages`, {
-      queries: searchQueries,
-      searchWord: searchWord,
-    })
-      .then(res => {
-        const pages = res.data.data;
+    try {
+      const pages = await this._api.getPages(searchQueries, searchWord);
 
-        this.setState(state => ({ 
-          loading: false,
-          pages: [...state.pages, ...pages],
-        }));
+      this.setState(prevState => ({
+        loading: false,
+        pages: [...prevState.pages, ...pages]
+      }));
+    } catch (err) {
+      this.setState({
+        loading: false
       })
-      .catch(err => {
-        this.setState({
-          loading: false,
-        });
-      })
+    }
   }
 
   render() {
