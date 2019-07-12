@@ -19,12 +19,12 @@ class Home extends React.Component {
             variant="h5"
             gutterBottom={true}
           >
-            About Post Helper
+            About Page Finder
           </Typography>
           <List
             subheader={
               <ListSubheader component="div">
-                This helper has two functions and maybe will be scaled in future:
+                This application has two functions and maybe will be scaled in future:
               </ListSubheader>
             }
           >

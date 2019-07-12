@@ -1,7 +1,7 @@
 const express = require('express')
 const serveStatic = require('serve-static')
 const cors = require('cors')
-const routes = require('./routes')
+const routes = require('./server/routes')
 
 const app = express()
 

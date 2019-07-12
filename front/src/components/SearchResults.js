@@ -22,8 +22,8 @@ class SearchResults extends React.Component {
             Search Results
           </Typography>
           <List>
-            {pages.map(page => (
-              <ListItem key={page.query}>
+            {pages.map((page, id) => (
+              <ListItem key={id}>
                 <ListItemIcon>
                   <RemoveIcon />
                 </ListItemIcon>

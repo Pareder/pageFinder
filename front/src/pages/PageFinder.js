@@ -1,5 +1,8 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 import SearchForm from '../components/SearchForm';
 import SearchResults from '../components/SearchResults';
 import API from '../api';
@@ -10,6 +13,7 @@ class Main extends React.Component {
     this.state = {
       pages: [],
       loading: false,
+      error: false
     };
 
     this._api = API.createFrom();
@@ -25,18 +29,27 @@ class Main extends React.Component {
       const pages = await this._api.getPages(searchQueries, searchWord);
 
       this.setState(prevState => ({
-        loading: false,
         pages: [...prevState.pages, ...pages]
       }));
     } catch (err) {
       this.setState({
-        loading: false
-      })
+        error: true
+      });
     }
+
+    this.setState({
+      loading: false
+    });
+  }
+
+  handleClose = () => {
+    this.setState({
+      error: false
+    });
   }
 
   render() {
-    const { pages, loading } = this.state;
+    const { pages, loading, error } = this.state;
 
     return (
       <div>
@@ -50,6 +63,29 @@ class Main extends React.Component {
         {pages.length > 0 &&
           <SearchResults pages={pages} />
         }
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'center'
+          }}
+          open={error}
+          autoHideDuration={60000}
+          onClose={this.handleClose}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">The server error has occurred</span>}
+          action={[
+            <IconButton
+              key="close"
+              aria-label="Close"
+              color="inherit"
+              onClick={this.handleClose}
+            >
+              <CloseIcon />
+            </IconButton>,
+          ]}
+        />
       </div>
     );
   }

@@ -1,12 +1,12 @@
 const express = require('express')
-const startFinding = require('../middleware/pageFinder')
+const PageFinder = require('../middleware/pageFinder')
 
 const routes = express.Router()
 
 routes.post('/getPages', async (req, res) => {
   try {
     const { queries, searchWord } = req.body
-    const results = await startFinding(queries, searchWord)
+    const results = await PageFinder.create().startFinding(queries, searchWord)
     res
       .status(201)
       .json({

@@ -12,7 +12,7 @@ class SearchQueries extends React.Component {
     return (
       <List>
         {searchQueries.map((query, id) =>
-          <ListItem key={query}>
+          <ListItem key={id}>
             <ListItemText
               secondary={
                 <>

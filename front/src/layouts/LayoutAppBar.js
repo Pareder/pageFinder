@@ -30,7 +30,7 @@ class LayoutAppBar extends React.Component {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" noWrap>
-            Own Post Helper
+            Page Finder
           </Typography>
         </Toolbar>
       </AppBar>

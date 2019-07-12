@@ -36,10 +36,12 @@ class TextFinder extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
     if (!this.state.text) {
       this.setState({
         errorText: true
       });
+
       return;
     }
 

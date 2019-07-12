@@ -82,6 +82,9 @@ const styles = theme => ({
     position: 'relative',
     margin: '0 auto',
   },
+  error: {
+    backgroundColor: theme.palette.error.dark,
+  },
 });
 
 export default styles;

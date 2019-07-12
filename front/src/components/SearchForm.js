@@ -35,10 +35,12 @@ class SearchForm extends React.Component {
   };
 
   handleAdd() {
-    this.setState(state => ({
-      searchQueries: [...new Set([...state.searchQueries, state.searchQuery])],
-      searchQuery: '',
-    }));
+    if (this.state.searchQuery) {
+      this.setState(state => ({
+        searchQueries: [...new Set([...state.searchQueries, state.searchQuery])],
+        searchQuery: '',
+      }));
+    }
   }
 
   handleDeleteClick = (id) => (event) => {
