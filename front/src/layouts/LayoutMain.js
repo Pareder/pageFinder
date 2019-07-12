@@ -13,9 +13,9 @@ class LayoutMain extends React.Component {
     return (
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Route exact path="/" component={Home} />
-        <Route path="/pageFinder" component={PageFinder} />
-        <Route path="/textFinder" component={TextFinder} />
+        <Route exact path="/" render ={ ()=> <Home/> } />
+        <Route path="/pageFinder" render ={ ()=> <PageFinder/> } />
+        <Route path="/textFinder" render ={ ()=> <TextFinder/> } />
       </main>
     );
   }
