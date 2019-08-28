@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -12,29 +12,23 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText'
 import RemoveIcon from '@material-ui/icons/Remove';
 import styles from '../components/styles';
-import { findRepeatingSentences } from '../utils';
+import {findRepeatingSentences} from '../utils';
 
 class TextFinder extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: '',
-      errorText: false,
-      repeatedSentences: [],
-      submitted: false,
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  state = {
+    text: '',
+    errorText: false,
+    repeatedSentences: [],
+    submitted: false,
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
       text: event.target.value
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     if (!this.state.text) {
@@ -58,8 +52,8 @@ class TextFinder extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
-    const { text, errorText, repeatedSentences, submitted } = this.state;
+    const {classes} = this.props;
+    const {text, errorText, repeatedSentences, submitted} = this.state;
 
     return (
       <div>
@@ -108,9 +102,9 @@ class TextFinder extends React.Component {
                 {repeatedSentences.map((sentence, id) =>
                   <ListItem key={id}>
                     <ListItemIcon>
-                      <RemoveIcon />
+                      <RemoveIcon/>
                     </ListItemIcon>
-                    <ListItemText 
+                    <ListItemText
                       primary={sentence}
                     />
                   </ListItem>

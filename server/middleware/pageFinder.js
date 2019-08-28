@@ -40,7 +40,7 @@ class PageFinder {
       }
     } else {
       try {
-        await page.waitForSelector(CONFIG.NEXT_BUTTON, { timeout: 2000 })
+        await page.waitForSelector(CONFIG.NEXT_BUTTON, {timeout: 2000})
         await page.click(CONFIG.NEXT_BUTTON)
 
         return this._pageSearch(searchWord, page, ++pageNumber)

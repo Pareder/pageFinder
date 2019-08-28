@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import FormControl from '@material-ui/core/FormControl';
@@ -12,33 +12,25 @@ import SearchQueries from './SearchQueries';
 import styles from './styles';
 
 class SearchForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchQueries: [],
-      searchQuery: '',
-      searchWord: '',
-      errorQuery: false,
-      errorWord: false,
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDeleteClick = this.handleDeleteClick.bind(this);
+  state = {
+    searchQueries: [],
+    searchQuery: '',
+    searchWord: '',
+    errorQuery: false,
+    errorWord: false,
   }
 
   handleChange = (name) => (event) => {
     this.setState({
       [name]: event.target.value,
     });
-  };
+  }
 
-  handleAdd() {
+  handleAdd = () => {
     if (this.state.searchQuery) {
       this.setState(state => ({
         searchQueries: [...new Set([...state.searchQueries, state.searchQuery])],
-        searchQuery: '',
+        searchQuery: ''
       }));
     }
   }
@@ -51,9 +43,9 @@ class SearchForm extends React.Component {
     this.setState({
       searchQueries: arr
     });
-  };
+  }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     let isError = false;
@@ -87,8 +79,8 @@ class SearchForm extends React.Component {
   }
 
   render() {
-    const { classes, loading } = this.props;
-    const { searchQueries, errorQuery, errorWord } = this.state;
+    const {classes, loading} = this.props;
+    const {searchQueries, errorQuery, errorWord} = this.state;
 
     return (
       <Card className={classes.margin}>
@@ -116,10 +108,10 @@ class SearchForm extends React.Component {
               />
             </FormControl>
             {searchQueries.length > 0 &&
-              <SearchQueries
-                searchQueries={searchQueries}
-                handleDeleteClick={this.handleDeleteClick}
-              />
+            <SearchQueries
+              searchQueries={searchQueries}
+              handleDeleteClick={this.handleDeleteClick}
+            />
             }
             <FormControl fullWidth className={classes.margin}>
               <InputLabel htmlFor="searchWord">Search Word</InputLabel>
@@ -141,7 +133,7 @@ class SearchForm extends React.Component {
               >
                 Search
               </Button>
-              {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+              {loading && <CircularProgress size={24} className={classes.buttonProgress}/>}
             </div>
           </form>
         </CardContent>

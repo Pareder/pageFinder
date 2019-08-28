@@ -5,11 +5,9 @@ const routes = express.Router()
 
 routes.post('/getPages', async (req, res) => {
   try {
-    const { queries, searchWord } = req.body
+    const {queries, searchWord} = req.body
     const results = await PageFinder.create().startFinding(queries, searchWord)
-    res
-      .status(201)
-      .json({
+    res.status(201).json({
         title: 'Finding Successful',
         data: results
       })

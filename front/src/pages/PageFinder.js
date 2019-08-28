@@ -49,7 +49,7 @@ class Main extends React.Component {
   }
 
   render() {
-    const { pages, loading, error } = this.state;
+    const {pages, loading, error} = this.state;
 
     return (
       <div>
@@ -61,7 +61,7 @@ class Main extends React.Component {
           handleSubmitParent={this.handleSubmit}
         />
         {pages.length > 0 &&
-          <SearchResults pages={pages} />
+        <SearchResults pages={pages}/>
         }
         <Snackbar
           anchorOrigin={{
@@ -82,7 +82,7 @@ class Main extends React.Component {
               color="inherit"
               onClick={this.handleClose}
             >
-              <CloseIcon />
+              <CloseIcon/>
             </IconButton>,
           ]}
         />
