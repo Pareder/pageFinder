@@ -5,14 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "jest": "^24.9.0",
     "puppeteer": "^1.18.1"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "<rootDir>/(node_modules)/"
+    ]
   }
 }
