@@ -1,41 +1,11 @@
 const PageFinder = require('./PageFinder')
+const {pageMock, getPuppeteer} = require('./mocks/PuppeteerMock')
 
-const puppeteerMock = {
-  launch: jest.fn(() => browserMock)
-}
-const browserMock = {
-  newPage: jest.fn(() => pageMock),
-  close: jest.fn()
-}
-const pageMock = {
-  goto: jest.fn(),
-  type: jest.fn(),
-  $eval: jest.fn(),
-  waitForSelector: jest.fn(),
-  click: jest.fn(() => {
-    throw new Error()
-  }),
-  $$: jest.fn(() => ([])),
-  evaluate: jest.fn()
-}
 const queries = [1, 2, 3]
 const searchWord = 'word'
 
-function getPageFinder(puppeteer = puppeteerMock, browser, page) {
-  return new PageFinder(getPuppeteer(browser, page))
-}
-
-function getPuppeteer(browser = browserMock, page) {
-  return {
-    launch: jest.fn(() => getBrowser(page))
-  }
-}
-
-function getBrowser(page = pageMock) {
-  return {
-    ...browserMock,
-    newPage: jest.fn(() => page)
-  }
+function getPageFinder(puppeteer, browser, page) {
+  return new PageFinder(getPuppeteer(puppeteer, browser, page))
 }
 
 describe('pageFinder', () => {

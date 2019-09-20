@@ -1,9 +1,12 @@
 const express = require('express')
 const middleware = require('../middleware')
-const PageFinder = require('../modules/PageFinder')
 
-const routes = express.Router()
+const getRoutes = modules => {
+  const routes = express.Router()
 
-routes.post('/getPages', async (req, res) => await middleware.getPages(req, res, PageFinder.create()))
+  routes.post('/getPages', async (req, res) => await middleware.getPages(req, res, modules.PageFinder))
 
-module.exports = routes
+  return routes
+}
+
+module.exports = getRoutes

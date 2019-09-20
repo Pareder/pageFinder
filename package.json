@@ -15,7 +15,8 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "jest": "^24.9.0",
-    "puppeteer": "^1.18.1"
+    "puppeteer": "^1.18.1",
+    "supertest": "^4.0.2"
   },
   "jest": {
     "transformIgnorePatterns": [
