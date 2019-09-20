@@ -1,6 +1,6 @@
 const express = require('express')
 const middleware = require('../middleware')
-const PageFinder = require('../modules/pageFinder')
+const PageFinder = require('../modules/PageFinder')
 
 const routes = express.Router()
 

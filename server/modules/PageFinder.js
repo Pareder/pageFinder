@@ -59,7 +59,7 @@ class PageFinder {
     for (let i = 0; i < element.length; i++) {
       const text = await page.evaluate(element => element.textContent, element[i])
 
-      if (text.toLowerCase().includes(searchWord.toLowerCase())) {
+      if (text.toLowerCase().includes(String(searchWord).toLowerCase())) {
         return true
       }
     }
