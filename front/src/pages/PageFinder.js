@@ -7,7 +7,7 @@ import SearchForm from '../components/SearchForm';
 import SearchResults from '../components/SearchResults';
 import API from '../api';
 
-class Main extends React.Component {
+class PageFinder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -91,4 +91,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+export default PageFinder;
