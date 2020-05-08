@@ -1,20 +1,21 @@
 {
   "name": "pageFinder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Find page on Google search",
+  "repository": "https://github.com/Pareder/pageFinder.git",
+  "author": "Pareder",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.5.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "jest": "^24.9.0",
+    "jest": "^26.0.1",
     "puppeteer": "^1.18.1",
     "supertest": "^4.0.2"
   },
