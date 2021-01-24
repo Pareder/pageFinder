@@ -15,7 +15,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.5.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "jest": "^26.0.1",
+    "jest": "^26.6.3",
     "puppeteer": "^1.18.1",
     "supertest": "^4.0.2"
   },
